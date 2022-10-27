@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eux
+
+echo "$UNITY_LICENSE" > UnityLicenseFile.ulf
+unity-editor -logFile - -quit -manualLicenseFile UnityLicenseFile.ulf
+chmo

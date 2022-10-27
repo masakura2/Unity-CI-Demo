@@ -10,12 +10,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: inspect
-        run: |
-          echo "$UNITY_LICENSE" > UnityLicenseFile.ulf
-          unity-editor -logFile -quit -manualLicenseFile UnityLicenseFile.ulf
+      - name: activate unity license
+        run: ./ci/android/activate
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      - name: export android project
+        run: ./ci/android/export
 
       - name: artifact
         uses: actions/upload-artifact@v3
