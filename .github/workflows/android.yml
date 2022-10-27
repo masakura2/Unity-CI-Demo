@@ -18,8 +18,14 @@ jobs:
       - name: export android project
         run: ./ci/android/export
 
+      - name: install gradle
+        run: ./ci/android/install-gradle
+
+      - name: create aab
+        run: ./ci/android/package
+
       - name: artifact
         uses: actions/upload-artifact@v3
         with:
           name: android-project
-          path: build/android
+          path: build/android/outputs
