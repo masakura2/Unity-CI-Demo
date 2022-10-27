@@ -2,4 +2,4 @@
 
 set -eux
 
-unity-editor -batchmode -quit -logFile - -projectPath . -executeMethod Export.Android -manualLicenseFile UnityLicenseFile.ulf
+unity-editor -batchmode -quit -logFile - -projectPath . -executeMethod Export.Android
