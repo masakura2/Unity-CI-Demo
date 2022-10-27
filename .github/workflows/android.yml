@@ -2,24 +2,16 @@ name: android build
 on:
   - push
 jobs:
-  export:
-    name: export to gradle project
+  build:
+    name: build android apps
     runs-on: ubuntu-latest
+    container: unity/editor:2020.3.36f1-android-1
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: export
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          targetPlatform: Android
-          unityVersion: 2020.3.36f1
-          buildMethod: Export.Android
-
-      - name: artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: gradle-project
-          path: ./build/android
+      - name: inspect
+        run: |
+          which unity
+          echo $JAVA_HOME
+          which gradle
