@@ -1,0 +1,18 @@
+name: android build
+on:
+  workflow_dispatch: {}
+jobs:
+  export:
+    name: export to gradle project
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: export
+      uses: game-ci/unity-builder@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: WebGL
+          unityVersion: 2020.3.36f1
