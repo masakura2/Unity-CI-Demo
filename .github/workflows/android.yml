@@ -14,5 +14,12 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          targetPlatform: WebGL
+          targetPlatform: Android
           unityVersion: 2020.3.36f1
+          buildMethod: Export.Android
+
+      - name: artifact
+        uses: actions/upload-artifact@v2
+        with:
+          - name: gradle-project
+            path: ./build/android
