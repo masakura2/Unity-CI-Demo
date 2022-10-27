@@ -2,4 +2,4 @@
 
 set -eux
 
-/Applications/Unity/Hub/Editor/2020.3.36f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile - -projectPath . -executeMethod Export.Android
+unity-editor -batchmode -quit -logFile - -projectPath . -executeMethod Export.Android
