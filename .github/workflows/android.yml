@@ -13,6 +13,6 @@ jobs:
         uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          with:
-            targetPlatform: WebGL
-            unityVersion: 2020.3.36f1
+        with:
+          targetPlatform: WebGL
+          unityVersion: 2020.3.36f1
