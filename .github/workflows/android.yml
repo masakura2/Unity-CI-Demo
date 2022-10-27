@@ -5,7 +5,7 @@ jobs:
   build:
     name: build android apps
     runs-on: ubuntu-latest
-    container: unity/editor:2020.3.36f1-android-1
+    container: unityci/editor:ubuntu-2020.3.36f1-android-1
     steps:
       - name: checkout
         uses: actions/checkout@v2
