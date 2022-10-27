@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eux
+
+unity-editor -batchmode -quit -logFile - -projectPath . -executeMethod Export.Android

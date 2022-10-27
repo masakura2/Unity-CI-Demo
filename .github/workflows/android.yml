@@ -1,0 +1,36 @@
+name: android build
+on:
+  - push
+jobs:
+  build:
+    name: build android apps
+    runs-on: ubuntu-latest
+    container: unityci/editor:ubuntu-2020.3.36f1-android-1
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: activate unity license
+        run: ./ci/android/activate
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      - name: export android project
+        run: ./ci/android/export
+
+      - name: install gradle
+        run: ./ci/android/install-gradle
+
+      - name: create aab
+        run: ./ci/android/package
+        env:
+          # https://github.com/masakura2/unity-ci-demo/actions/runs/3335939692/jobs/5520492479
+          # ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+          # なんでやろう...
+          JAVA_HOME: /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/OpenJDK
+
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: android-project
+          path: build/android/launcher/build/outputs
