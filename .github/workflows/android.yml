@@ -1,6 +1,6 @@
 name: android build
 on:
-  workflow_dispatch: {}
+  - push
 jobs:
   export:
     name: export to gradle project
