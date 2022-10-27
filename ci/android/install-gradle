@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get -qy update && apt-get -qy install unzip || true
+
 mkdir -p gradle
 wget https://services.gradle.org/distributions/gradle-6.9.3-bin.zip
 unzip -d gradle gradle-6.9.3-bin.zip
