@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: android-project
-          path: build/android/outputs
+          path: build/android/launcher/build/outputs
